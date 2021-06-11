@@ -8,6 +8,7 @@ require "action_controller"
 require "action_dispatch/system_testing/driver"
 require "action_dispatch/system_testing/browser"
 require "action_dispatch/system_testing/server"
+require "action_dispatch/system_testing/test_helpers/save_page_helper"
 require "action_dispatch/system_testing/test_helpers/screenshot_helper"
 require "action_dispatch/system_testing/test_helpers/setup_and_teardown"
 require "action_dispatch/system_testing/test_helpers/undef_methods"
@@ -95,6 +96,7 @@ module ActionDispatch
   class SystemTestCase < IntegrationTest
     include Capybara::DSL
     include Capybara::Minitest::Assertions
+    include SystemTesting::TestHelpers::SavePageHelper
     include SystemTesting::TestHelpers::SetupAndTeardown
     include SystemTesting::TestHelpers::ScreenshotHelper
     include SystemTesting::TestHelpers::UndefMethods
